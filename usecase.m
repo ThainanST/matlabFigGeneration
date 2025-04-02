@@ -10,6 +10,7 @@ y2 = cos(2*pi*f*t2);
 config = struct;
 config.x = {t1, t2};
 config.y = {y1, y2};
+config.ylimvet        = [-1.5 1.5]; % optional
 config.labels         = {'Sine', 'Cosine'};
 config.lineSpec       = {'-', '-'};
 config.xlabel         = 'Time, s';

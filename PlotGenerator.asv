@@ -91,15 +91,9 @@ classdef PlotGenerator
                 xmin = min(xmin, min(x));
                 xmax = max(xmax, max(x));
             end
-            
-            
+
             xlim([xmin, xmax])
-            
-            if (isfield(obj.config, 'ylimvet'))
-                ylimvet = obj.config.ylimvet;
-                ylim(ylimvet)
-            end
-            
+            ylim(ylimvet)
 
             if ~isempty(obj.config.labels)
                 leg = legend(obj.plotHandles, obj.config.labels, 'Location', obj.config.legendLocation);
