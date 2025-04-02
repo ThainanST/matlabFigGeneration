@@ -8,15 +8,19 @@ Simply add the `PlotGenerator.m` class file to your MATLAB path.
 ## Basic Usage
 
 ```matlab
-% 1. Prepare your data
-t = 0:0.01:1;
-y1 = sin(2*pi*5*t);
-y2 = cos(2*pi*3*t);
+clc; clear; close all
 
-% 2. Create configuration
+%% Signal
+f = 60;          d = 50e-6;
+t1 = 0:d:2/f;    t2 = 0:d*2:2/f;
+y1 = sin(2*pi*f*t1);
+y2 = cos(2*pi*f*t2);
+
+%% Config
 config = struct;
 config.x = {t1, t2};
 config.y = {y1, y2};
+config.ylimvet        = [-1.5 1.5]; % optional
 config.labels         = {'Sine', 'Cosine'};
 config.lineSpec       = {'-', '-'};
 config.xlabel         = 'Time, s';
@@ -31,7 +35,7 @@ config.nameFig        = 'fig1';
 config.width          = 12;
 config.height         = 4;
 
-% 3. Generate and save plot
+%% Execução
 pg = PlotGenerator(config);
 pg.execute();
 ```
